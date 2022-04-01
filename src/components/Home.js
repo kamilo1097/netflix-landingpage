@@ -3,6 +3,7 @@ import logo from "../assets/images/logo.png";
 import NetflixBtn from "./NetflixBtn";
 import "./Home.css";
 import Tabs from "./Tabs";
+import Footer from "./Footer";
 
 export default function Home() {
   return (
@@ -21,6 +22,7 @@ export default function Home() {
         </div>
       </header>
       <Tabs />
+      <Footer />
     </>
   );
 }

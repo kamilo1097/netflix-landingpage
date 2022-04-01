@@ -61,6 +61,7 @@ img {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  transition: 0.5s;
 }
 .showcase-top a {
   position: absolute;
@@ -143,6 +144,51 @@ img {
 .text-center {
   text-align: center;
 }
+.text-md {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
 .text-dark {
   color: #999;
+}
+@media (max-width: 960px) {
+  .showcase {
+    height: 70vh;
+  }
+  .hide-sm {
+    display: none;
+  }
+  .showcase-top img {
+    top: 30%;
+    left: 5%;
+    transform: translate(0);
+  }
+  .showcase-content {
+    margin-top: 3rem;
+  }
+  .showcase-content h1 {
+    font-size: 3.7rem;
+    line-height: 1;
+  }
+  .showcase-content p {
+    font-size: 1.5rem;
+  }
+  .btn-xl {
+    font-size: 1.5rem;
+    padding: 1.4rem 2rem;
+  }
+  .text-xl {
+    font-size: 1.5rem;
+  }
+  .text-lg {
+    font-size: 1.3rem;
+  }
+  .text-md {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 700px) {
+  .showcase::after {
+    box-shadow: inset 80px 80px 250px #000, inset -80px -80px 250px #000;
+  }
 }
