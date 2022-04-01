@@ -23,14 +23,14 @@ export default function Tabs() {
     },
   ]);
   const selectItem = (e) => {
-    tabObjects.map((item) => {
+    const objects = tabObjects.map((item) => {
       item.isChecked = false;
       if (e === item.key) {
         item.isChecked = true;
       }
     });
-    setTabObjects(tabObjects);
-    console.log(tabObjects);
+    console.log(objects);
+    setTabObjects([...objects]);
   };
   let checked = "tab-item tab-border";
   let notChecked = "tab-item";
