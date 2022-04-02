@@ -5,59 +5,44 @@ export default function Tabs() {
   const [tabObjects, setTabObjects] = useState([
     {
       key: "tab-1",
-      isChecked: true,
+      number: 1,
       icon: "fas fa-door-open fa-3x",
       pText: "Cancel anytime",
     },
     {
       key: "tab-2",
-      isChecked: false,
+      number: 2,
       icon: "fas fa-tablet-alt fa-3x",
       pText: "Watch anywhere",
     },
     {
       key: "tab-3",
-      isChecked: false,
+      number: 3,
       icon: "fas fa-tags fa-3x",
       pText: "Pick your price",
     },
   ]);
-  const selectItem = (e) => {
-    const objects = tabObjects.map((item) => {
-      item.isChecked = false;
-      if (e === item.key) {
-        item.isChecked = true;
-      }
-    });
-    console.log(objects);
-    setTabObjects([...objects]);
+  const toggleTab = (index) => {
+    setToggleState(index);
   };
+  const [toggleState, setToggleState] = useState(1);
+
   let checked = "tab-item tab-border";
   let notChecked = "tab-item";
+  let contentShow = "tab-content-item show";
+  let contentHidden = "tab-content-item";
 
   //addEventListenerForTabItem();
   return (
     <>
       <section className="tabs">
         <div className="container">
-          {/* <div id="tab-1" className="tab-item" onClick={selectItem}>
-            <i className="fas fa-door-open fa-3x"></i>
-            <p className="hide-sm">Cancel anytime</p>
-          </div>
-          <div id="tab-2" className="tab-item">
-            <i className="fas fa-tablet-alt fa-3x"></i>
-            <p className="hide-sm">Watch anywhere</p>
-          </div>
-          <div id="tab-3" className="tab-item">
-            <i className="fas fa-tags fa-3x"></i>
-            <p className="hide-sm">Pick your price</p>
-          </div> */}
-          {tabObjects.map((item) => (
+          {tabObjects.map((item, index) => (
             <div
               key={item.key}
               id={item.key}
-              className={item.isChecked ? checked : notChecked}
-              onClick={() => selectItem(item.key)}
+              className={toggleState === index + 1 ? checked : notChecked}
+              onClick={() => toggleTab(index + 1)}
             >
               <i className={item.icon}></i>
               <p className="hide-sm">{item.pText}</p>
@@ -67,7 +52,10 @@ export default function Tabs() {
       </section>
       <section className="tab-content">
         <div className="container">
-          <div id="tab-1-content" className="tab-content-item show">
+          <div
+            id="tab-1-content"
+            className={toggleState === 1 ? contentShow : contentHidden}
+          >
             <div className="tab-1-content-inner">
               <div>
                 <p className="text-lg">
@@ -81,7 +69,10 @@ export default function Tabs() {
               <img src="https://i.ibb.co/J2xDJV7/tab-content-1.png" />
             </div>
           </div>
-          <div id="tab-2-content" className="tab-content-item">
+          <div
+            id="tab-2-content"
+            className={toggleState === 2 ? contentShow : contentHidden}
+          >
             <div className="tab-2-content-top">
               <p className="text-lg">
                 Watch TV shows and movies anytime, anywhere — personalized for
@@ -114,7 +105,10 @@ export default function Tabs() {
               </div>
             </div>
           </div>
-          <div id="tab-3-content" className="tab-content-item">
+          <div
+            id="tab-3-content"
+            className={toggleState === 3 ? contentShow : contentHidden}
+          >
             <div className="text-center">
               <p className="text-lg">
                 Choose one plan and watch everything on Netflix

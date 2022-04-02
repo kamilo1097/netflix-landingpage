@@ -31,6 +31,12 @@
   background: #000;
   color: #fff;
 }
+.tab-content-item {
+  display: none;
+}
+.show {
+  display: block;
+}
 #tab-1-content .tab-1-content-inner {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
